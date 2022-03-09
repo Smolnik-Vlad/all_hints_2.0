@@ -1,0 +1,177 @@
+				Структура
+using System;
+using UnityEngine.UI - исп для подключения фич с юнити
+namespace ProjectOne
+{
+	class MainClass						
+	{
+		public static void main(string[] args);  - функция, с которо все начинается
+	}
+}
+
+	Полезные функции
+void Awake() - работает даже раньше Start
+void Start() - вызыв при создании объекта
+void Update() - вызывается каждый фрейм (промежуток вермени (обычно не равны))
+void FixedUpdate() - исп при работе с физикой (сменяется каждые 0,02 сек)
+void OnMouseDown(){} - используется для твердых объектов и при нажатии на мышь
+private void OnCollisionEnter(\exit\stay)(Collision(соприкосновение) collision) - выполняется, когда сталкиваются 2 объекта, имеющих свойство rigidbody
+private void OnTriggerEnter(\exit\stay)(Collider other) - выполняется, когда сталкиваются два объекта, но объект, на котором скрипт, должен содержать пункт is Trigger (в юнити), сам проект не имеет коллизии и проходит сквозь другого
+
+	работа с консолью	
+var а - автоматическая переменная 
+print\Debug.log("hi") - вывод в консоль
+console.WriteKey('ф') - вывод одного символа
+console.WriteLine("A"+ a) - вывод текста в консоль (А4) (a=4)
+console.ReadKey() - ввод небольшого набора символов
+console.ReadLine() - ввод большого набора символов
+	
+	переменные
+private Light a - переменная для работы со светом
+
+Text txt - переменная типа text для работы с текстом
+txt.text = other.gameObject.name + " " + count.ToString(); - для выведения текста на поле unity
+Text txt = GameObject.Find("Text").GetComponent<Text>(); - переменная присваивает найденный оюъект в скрипте (полезная шштука при поиске объектов)
+
+
+[SerializeField] - пишется перед функцией, для показания переменных в окоше unity
+num=Convert.ToInt32(Console.Readkey()) - ввод значения переменнйой с клавиатуры (конвертирует из строки в int)
+a.ToString() - перевод типа переменной из int в String
+
+
+	операторы и логика
+if(){}/else if(){}/else -  операторы условий
+string name = num = 15&"First":"Second"; - если num=15, то name=First, или name=Second
+
+switch(a):
+case 1:
+break;
+
+int[] array=new int[5]{11, 22, 33, 44, 55}; - пример создания массива
+List<int> numbers = new List<int>() - список (полувектор)
+numbers.Add(23) - добавляет элемент
+numbers.RemoveAt(a) -удалить элемент а
+numbers.Remove(a) - удалить элемент со значением а
+
+int[,] numbers = new int[a, b]; - двумерный массив размера axb
+
+	Рандом 
+
+Random rand = new Random(); -  создание объекта рандом
+int temp;
+temp = rand.Next(100, 1000); - рандом в диапазоне 100-1000 (но почему-то выдает постоянно одно и то же значение)
+
+int temp = UnityEngine.Random.Range(0, 3); - выдает значение от 0 до 2
+
+		Корутины (для вызывания объекта через какое-то время)
+IEnumerator instObj () {} - создание корутины 
+
+public class script : MonoBehaviour
+{
+    public GameObject obj;
+
+    IEnumerator instobj()  - объявление корутины
+    {
+        yield return new WaitForSeconds(1.5f); - начнет работать через 1,5 сек
+        Instantiate(obj, obj.transform.position, Quaternion.identity);
+    }
+
+    private void Start()
+    {
+        
+            StartCoroutine(instobj()); - вызываем корутину
+        
+    }
+}
+
+
+invoke ("inst", 2f) - вызов функции inst через 2 секунды
+
+	Присваивание кнопке действия
+
+private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space)) - если нажата кнопка Space, то ...
+    }
+getKey - выполняется, пока нажата клавиша
+getKeyUp - 1 нажатиеж
+getKeyDown - при отпуске
+float h = Input.GetAxis("horizontal") - присваивание переменной значение нажатой кнопки для настраивания оси 
+
+	Unityengine.UI - пространство для работы с картинками, текстом, видео и тд
+Text txt - переменная типа text для работы с текстом (типов переменных куча, все можно использовать, создавая новый объект в unity типа UI)
+txt.text = other.gameObject.name + " " + count.ToString(); - для выведения текста на поле unity
+Text txt = GameObject.Find("Text").GetComponent<Text>(); - переменная присваивает найденный оюъект в скрипте (полезная шштука при поиске объектов)
+
+	Свет
+public class script: Monobehaviour
+{
+  private Light myLight       - переменная типа Light
+  void start
+	{
+	  myLight=GetComponent<Light>(); - получает компонент Light
+	}
+  void update
+	{
+	if(Input.GetKeyUp(KeyCode.Space)){
+	  myLight.enabled=!myLight.enabled;} - включает/выключает свет 
+	}
+}
+	
+		Объект
+
+public GameObject obj; - создание переменной типа объект (далее в окошку переменной в unity перетягивается тот объект, который мы хотим использовать)
+
+	Создание объекта
+void start(){
+	Instantiate(object, new Vector3(5, 7, 10)) - установить объект на координатах (5, 7, 10)
+	Instantiate(objects, objects.transform.position, objects.transform.rotation); - установить объект object на указанные координаты и повернутый на определенный градус(objects.transform.position изначально задается как (0, 0, 0), так же и objects.transform.rotation)
+
+	 Vector3 position = new Vector3(2f, 0, 3f); - создание новой позиции
+        Instantiate(object, position, Quaternion.identity); - создание объекта на заданных  координатах 
+
+	inst_obj=Instantiate(objects[temp], objects[temp].transform.position, objects[temp].transform.rotation) as GameObject -  создание переменной на указанный объект (чтобы в дальнейшем было удобнее использовать при установке объекта) b и создание объекта
+
+}
+
+	Скрывание и удаление объекта
+private void Update
+{
+ obj.setActive(true/false) - скрывание объекта
+ destroy(obj) - удаление объекта
+
+	смена цвета:
+if (Input.GetKeyUp(KeyCode.A))) {- если пользователь нажал а
+obj.GetComponent<Renderer>().material.color=Color.green; }- придать цвет объекту (renderer - свойства)
+
+	перемещение объекта:
+Движение объекта можно вызывать, проверяя на нажатие какой нибудь клавиши по фреймам или изменять позицию при помощи "горячих" клавиш Input.GetAxis("Horizontal/vertical...")
+
+
+1сп (при нажатии объект перемещется в на определенные координаты, при отпускании возвращается на месте)
+float h = Input.GetAxis("Horizontal") - присваивание переменной значение нажатой кнопки для движениия объекта (в данном случае по горизонтали, варьируется от -1 до 1(слово horizontal уже имеет определенные значения(в юнити можно посмотреть edit->project settings->Input manager->axes)))
+float xPos = h * range; - 
+obj.transform.position = new Vector3(xPos, 0, 0);
+
+2сп (для стандартного движения объекта )
+if (Input.GetKey(KeyCode.UpArrow))
+        {
+            obj.transform.Translate(Vector3.forward*moveSpeed*Time.deltaTime); -vector3, если в обратную сторону. forward - направление, moveSpeed - переменная со значением скорости, Time.deltaTime - для плавного перемещения
+        }
+        
+	Вращение объекта
+if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            obj.transform.Rotate(Vector3.up, turnSpeed*Time.deltaTime);
+        }
+
+	Изменение размера объекта
+private void OnMouseDown() - уже присвоено к нажатию мышки, поэтому не нужно писать if(Input.GetKey(KeyCode.Mouse))
+   {
+      transform.localScale = new Vector3(transform.localScale.x/2f, transform.localScale.y/2f, transform.localScale.z/2f); - не  объявляем переменную через GameObject поскольку скрипт написали на него(в моем примере)
+   }
+OnMouseUp() -  при отпуске мышки
+OnMouseUpAsButton - при отпуске и нажатии на предмете
+}
+
+

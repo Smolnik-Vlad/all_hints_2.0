@@ -1,0 +1,24 @@
+console.log(a) - вывод в консоль а
+
+
+		полезное
+header.classList.add('red'); - добавляет к header red
+header.classList.remove('red'); - убирает 
+let scrollPos=this.window.scrollY; - переменная хранит градусы прокрутки
+
+		Переменные
+let name="" - создание переменной
+const let name - переменная постоянна
+typeof name - узнать тип переменной name
+
+	Dom элементы (Cелекторы)
+const header = document.querySelection(".Название объекта из html/#по ID ") - создание переменной с элементом из html (если их несколько выбтрает первый)
+const header = document.getElementById("название id элемента") - создание переменной с элементом из html (обращение по ID)
+const navLinks = document.querySelectorAll(".nav_link"); - для вывода всех элементов, соответствующих ссылке
+
+	События 
+
+window.addEventListener("scroll", function() - выполняет событие при прокрутке страницы
+{
+    console.log("scrolled");
+})
