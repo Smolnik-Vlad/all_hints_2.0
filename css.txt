@@ -1,3 +1,42 @@
-	Обрабатывемый тег
-span{} - все такие теги будут обрабатываться
-.red_col{} - все теги с классом red_col обрабатываются (red_col - класс тега)
+	Обрабатывемый тег (тег span берется как пример)
+span{} - все теги span будут обрабатываться
+.red_col{} - обрабатываются все теги с классом red_col  (red_col - класс тега)
+span.red_col{} - обрабатываются все теги span с классом red_col 
+.red_col span{} - обрабатываются все span внутри класса red_col 
+.red_col>span{} - если есть в классе вложеный тег, то будет отрабатваться исключительно span, принадлежащие этому классу, но не принадлежащие вложенному тегу
+ 
+	Обнуление CSS стилей (просто вставить кусок кода в начало файла CSS) - для полного управления стилями
+*{                  * - для всех тегов ()
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*:before,*:after{			-ставит подсчет ширины блоков так, чтобы было удобно верстать
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus, :active{outline: none;}    - убираем линии обводки у некоторых тегов
+a:focus, a:active{outline: none;}
+
+nav, footer, header, aside{display: block;} - делает теги блочными
+
+html, body{             - уравнивает поведение шрифтов и элементов для разных браузеров
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 100%;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+input,button,textarea{font-family: inherit;} - просим наследовать теги семейство шрифта
+
+input::-ms-clear{display: name;}      - убирают некоторые моменты
+button{cursor: pointer;}
+a, a:visited{text-decoration: none ;}
+a:hover{text-decoration: none;}
+ul li{list-style: name;}
+img{vertical-align: top;}
