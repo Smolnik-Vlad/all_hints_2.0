@@ -33,6 +33,7 @@
 <form action="#" method="" enctype = ""></form> - тег, отвечающий за передачу данных(блочный)
 <input type="" name="" value=""> - тег ввода (далее все смотреть в атрибутах) 
 <textarea name="" cols="" rows=""> - тег для объемного ввода
+<button type=""></button> - кнопка
 
 Выпадающий список:
 <select name="color" >				- Коробка выподающего списка
@@ -41,7 +42,7 @@
      <option value="green">зеленый</option>
 </select>
 
-<button type=""></button>
+
 
 	Теги списков:
 
