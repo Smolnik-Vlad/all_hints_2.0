@@ -114,3 +114,25 @@
 	type="" - атрибут обработки:
 					submit - отправляются все заполненные поля
 					reset - сброс настроек
+
+	Мета-теги(пишутся в head)
+<meta name="" content=""> - мета тег
+
+<meta charset="UTF-8"> - мета-тег для настройки языка
+<meta name="viewport" content="width=1170"> - мета-тег для фиксации верстки, то есть условие адаптации при изменении размера экрана (name="viewport" - способ отображения, content="width=1170" - заданый размер)
+		      content ="width=device-width" - если мы хотим, чтобы изменялось
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0/1"> - мета-тег для настройки масштабирования на телефоне. (initial-scale - изначальный масштаб страниицы, maximum-scale - максимальный масштаб страницы, user-scalable = 0/1 - запрещаем/разрешаем масштабирование страницы)
+ <meta name="format-detection" content="telephone=no"> - для отключения возможности нажать на телефон
+
+сео-теги
+<meta name="description" content="что такое ..."> - краткое описание страницы
+<meta name="keywords" content="мета теги, meta, мета теги для сео"> - ключевые слова (не более 20)
+<meta name="robots" content="noimageindex, nofollow">доступ поисковых роботов к странице (в данном случае запрещает проходить индексацию по картинкам), всю инфу о индексации смотреть в инете
+
+технические теги:
+<meta name="Author" content="Vlad"> - мета-тег автора
+<meta name="Copyright" content="Vlad"> - владелец авторских прав
+<meta name="Adress" content=""> - адрес
+<meta http-equiv="refresh" content="0, url="> - мета-тег перенаправляет на другую страницу, content="0, url=" - количество секунд, через сколько нужно перенаправить, url= - адресс
+
+теги соц-сетей изучить!!!
