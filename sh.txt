@@ -1,0 +1,64 @@
+sh file.sh - запустить shell 
+chmod +x hello.sh
+
+#!/bin/bash
+
+echo "hello" - вывод в консоль
+read Name - ввод с консоли
+
+
+
+	Переменные
+name='Vlad'
+age=$((18)) - интовая переменная
+echo "привет, $name" - выведет привет, влад (обяз двойные кавычки)
+$0 - имя файла
+Параметры: $1...$9 - передаются прямо при вызове программы, потом к ним в файле можно обращаться
+
+array[$i]=$text - создание и добавление в массив элемента
+i=$(($i+1)) - увеличение размера массива на 1
+for i in ${!array[@]}; do - цикл на весь массив
+
+
+	Условия, операции сравнивания
+
+if [[ $age -ge 0 ]] && [[ $age -lt 12 ]]; then
+	echo "вы еще ребенок"
+elif [[ $age -ge 12 ]] && [[ $age -lt 18 ]]; then
+	echo "Вы подросток"
+else
+	echo "Вы старичок"
+fi
+
+
+
+-it # <
+-gt # >
+-le # <=
+-ge # >=
+-eq # ==
+
+	
+	case
+case $brand in 
+	samsung)
+		echo "$brand - 30%";;
+	nokia)
+		echo "$brand - 10$";;
+	*)
+		echo "smthng wrong"
+esac
+
+
+
+
+BASH - полный путь до исполняемого файла командной оболочки bssh
+BASH_VERSION
+HOME
+HOSTNAME
+RANDOM
+OSTTYPE
+PWD
+PS1
+UID
+USER
